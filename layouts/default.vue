@@ -26,6 +26,19 @@
     </v-navigation-drawer>
     <v-app-bar :clipped-left="clipped" fixed app>
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
+      <v-btn
+        icon
+        :color="$vuetify.theme.dark ? 'light' : 'dark'"
+        @click="$vuetify.theme.dark = !$vuetify.theme.dark"
+      >
+        <v-icon
+          v-text="
+            $vuetify.theme.dark
+              ? 'mdi-weather-night'
+              : 'mdi-white-balance-sunny'
+          "
+        ></v-icon>
+      </v-btn>
       <v-toolbar-title v-text="title" />
       <v-spacer />
     </v-app-bar>
