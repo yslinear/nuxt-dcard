@@ -29,9 +29,7 @@ export default {
     return { posts: [], selectedPost: -1 };
   },
   async fetch() {
-    this.posts = await fetch(
-      "https://www.dcard.tw/service/api/v2/posts?popular=true&limit=100"
-    ).then((res) => res.json());
+    this.posts = await this.$axios.$get("/service/api/v2/posts?popular=true&limit=100");
   },
   // call fetch only on client-side
   fetchOnServer: true,

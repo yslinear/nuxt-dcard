@@ -37,8 +37,15 @@ export default {
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
+    '@nuxtjs/axios',
+    '@nuxtjs/proxy',
   ],
-
+  axios: {
+    proxy: true
+  },
+  proxy: [
+    'https://www.dcard.tw/service/api/v2/',
+  ],
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
   vuetify: {
     customVariables: ['~/assets/variables.scss'],
