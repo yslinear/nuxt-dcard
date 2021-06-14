@@ -29,7 +29,7 @@
       <v-btn
         icon
         :color="$vuetify.theme.dark ? 'light' : 'dark'"
-        @click="$vuetify.theme.dark = !$vuetify.theme.dark"
+        @click="switchTheme()"
       >
         <v-icon
           v-text="
@@ -75,6 +75,15 @@ export default {
       miniVariant: false,
       title: "Nuxt Dcard",
     };
+  },
+  mounted() {
+    this.$vuetify.theme.dark = this.$store.state.darkMode;
+  },
+  methods: {
+    switchTheme() {
+      this.$store.commit("SWITCH_DARK");
+      this.$vuetify.theme.dark = this.$store.state.darkMode;
+    },
   },
 };
 </script>
